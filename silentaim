@@ -7,9 +7,7 @@ local players = game:GetService("Players");
 local localplayer = players.LocalPlayer;
 local camera = workspace.CurrentCamera;
 local shared = getrenv().shared;
-local UIS = game:GetService'UserInputService';
-UIS.InputBegan:connect(function(UserInput)
-        if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Z then
+
 -- modules
 local physics = shared.require("physics");
 local particle = shared.require("particle");
@@ -76,8 +74,6 @@ old = hookfunction(particle.new, function(args)
                 args.velocity.Magnitude);
 
             debug.setstack(2, index, args.velocity);
-            UIS.InputEnded:connect(function(UserInput)
-        if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Z then
         end
     end
     return old(args);
